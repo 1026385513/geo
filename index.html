@@ -75,8 +75,8 @@
     
     
   function onComplete (data) {console.log(data)
-    // if(data.accuracy == null || data.accuracy > 70)
-    //     return;
+    if(data.accuracy == null || data.accuracy > 70)
+        return;
     if(!lastlon)
     {
         lastlon = data.position.getLng();
