@@ -41,6 +41,9 @@
         map.addControl(geolocation);
     AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
     AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+
+
+    geolocation.watchPosition()
   });
     
   function addMarker(lon,lat) {
@@ -116,12 +119,9 @@
     // }, false);
 
 //addline(114.298229,30.600905,114.310245,30.546812)
-var i=0;
-setInterval(function (){
-  console.log(i++)
-},1000);
 
-geolocation.watchPosition()
+
+
 
 
     </script>
