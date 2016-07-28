@@ -74,7 +74,7 @@
     
     
     
-  function onComplete (data) {
+  function onComplete (data) {console.log(data)
     if(data.accuracy == null || data.accuracy > 70)
         return;
     if(lastlon == 0)
