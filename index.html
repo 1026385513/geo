@@ -20,7 +20,7 @@
 	<div id="result"></div>
     
     <script type="text/javascript">
-    var map = new AMap.Map('map',{zoom: 15}), geolocation = null;
+    var map = new AMap.Map('map',{zoom: 15}), geolocation = null,lastlon,lastlat;
 
 
     map.plugin('AMap.Geolocation', function () {
@@ -65,7 +65,7 @@
         path: lineArr,          //设置线覆盖物路径
         strokeColor: "#3366FF", //线颜色
         strokeOpacity: 1,       //线透明度
-        strokeWeight: 5,        //线宽
+        strokeWeight: 3,        //线宽
         strokeStyle: "solid",   //线样式
         strokeDasharray: [10, 5] //补充线样式
       });
@@ -75,13 +75,13 @@
     
     
   function onComplete (data) {console.log(data)
-    if(data.accuracy == null || data.accuracy > 70)
-        return;
-    if(lastlon == 0)
+    // if(data.accuracy == null || data.accuracy > 70)
+    //     return;
+    if(!lastlon)
     {
         lastlon = data.position.getLng();
-      lastlat = data.position.getLat();
-      return;
+        lastlat = data.position.getLat();
+        return;
     }
     addline(lastlon,lastlat,data.position.getLng(),data.position.getLat());
     lastlon = data.position.getLng();
